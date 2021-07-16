@@ -1,7 +1,7 @@
 .lfq-button{
   margin: 100px;
   display: inline-block;
-  .btn{
+  button{
     width: 100px;
     height: 40px;
     border: 0;
@@ -15,5 +15,20 @@
     &:hover{
       background: #66b1ff;
     }
+  }
+  .medium{
+    width: 150px;
+    height: 60px;
+    line-height: 60rpx;
+  }
+  .small{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .mini{
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
   }
 }

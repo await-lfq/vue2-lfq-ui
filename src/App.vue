@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <lfq-button>
-      <template v-slot:content>主要按钮</template>
+      <template v-slot:content>按钮</template>
     </lfq-button>
   </div>
 </template>
