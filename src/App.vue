@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <lfq-button type="danger" :round="true" size="small">
-      <template v-slot:content>按钮</template>
-    </lfq-button>
+    <router-view></router-view>
   </div>
 </template>
 

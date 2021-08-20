@@ -1,64 +1,13 @@
 .lfq-button {
-  margin: 100px;
   display: inline-block;
-
   button {
     border: 0;
     outline: 0;
     cursor: pointer;
-    color: #fff;
-    font-size: 16px;
     transition: all 0.5s;
-
   }
-
-  // 按钮的尺寸
-  .medium {
-    width: 150px;
-    height: 60px;
-    line-height: 60rpx;
+  .disabled{
+    cursor: not-allowed;
+    opacity: 0.4;
   }
-
-  .small {
-    width: 100px;
-    height: 40px;
-    line-height: 40px;
-  }
-
-  .mini {
-    width: 75px;
-    height: 30px;
-    line-height: 30px;
-  }
-
-  // 按钮的类型
-  .primary {
-    background: #409eff;
-
-    &:hover {
-      background: #66b1ff;
-    }
-  }
-
-  .warning {
-    background: #e6a23c;
-
-    &:hover {
-      background: #f3d19e;
-    }
-  }
-
-  .danger {
-    background: #f56c6c;
-
-    &:hover {
-      background: #f78989;
-    }
-  }
-
-  // 圆角
-  .round {
-    border-radius: 5px;
-  }
-
 }
