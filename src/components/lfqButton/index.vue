@@ -1,6 +1,6 @@
 <template>
   <div class="lfq-button">
-    <button ref="buttonNode" :class="{disabled}" @mouseleave="onMouseleave" @mouseenter="onMouseenter" :style="{width,height,color,'line-height':lineHeight,'font-size':fontSize,'border-radius':borderRadius,background}">
+    <button :type="nativeType" :autofocus="isAutofocus" :disabled="isDisabled" :class="{round:isRound,circle:isCircle,disabled:isDisabled}" :style="{...btnStyle}">
       <slot name="content" />
     </button>
   </div>
@@ -8,63 +8,145 @@
 
 <script>
 export default {
-  data () {
-    return {
-
-    };
-  },
   props: {
     // 宽度
     width: {
       type: String,
-      default: "120px",
+      default: "140px",
     },
     // 高度
     height: {
       type: String,
-      default: "50px",
+      default: "60px",
     },
     // 行高
     lineHeight: {
       type: String,
-      default: "50px",
+      default: "60px",
+    },
+    // 边框
+    border: {
+      type: String,
+      default: "1px solid #dcdfe6",
     },
     // 背景色
     background: {
       type: String,
-      default: "#409EFF"
+      default: "#fff"
     },
     // 字体颜色
     color: {
       type: String,
-      default: "#fff"
+      default: "#000"
     },
-    // 字体大小
-    fontSize: {
+    // 尺寸
+    size: {
       type: String,
-      default: "16px"
     },
-    // 圆角的大小
-    borderRadius: {
+    // 类型
+    type: {
       type: String,
-      default: "5px"
     },
-    // 鼠标滑入显示的背景色
-    mouseenterColor: {
-      type: String,
-      default: "#66b1ff"
-    },
-    // 是否禁用
-    disabled: {
+    // 是否是圆角
+    isRound: {
       type: Boolean,
       default: false,
+    },
+    // 是否是圆形
+    isCircle: {
+      type: Boolean,
+      default: false,
+    },
+    // 是否禁用
+    isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    // 是否聚焦
+    isAutofocus: {
+      type: Boolean,
+      default: false,
+    },
+    // 原生的type属性
+    nativeType:{
+      type:String,
+      default:"button"
     }
   },
-  created () {
+  computed: {
+    // 样式
+    btnStyle () {
+      return (
+        {
+          width: this.size ? this.btnSize.width : this.width,
+          height: this.size ? this.btnSize.height : this.height,
+          "line-height": this.size ? this.btnSize["line-height"] : this.lineHeight,
+          background: this.type ? this.btntype.background : this.background,
+          color: this.type ? this.btntype.color : this.color,
+          border: this.type ? this.btntype.border : this.border,
+        }
+      )
+    },
+    // 按钮尺寸
+    btnSize () {
+      if (!this.size) {
+        return;
+      }
+      switch (this.size) {
+        case "medium":
+          return {
+            width: "120px",
+            height: "50px",
+            "line-height": "50px"
+          }
+          break;
+        case "small":
+          return {
+            width: "100px",
+            height: "40px",
+            "line-height": "40px"
+          }
+          break;
+        case "mini":
+          return {
+            width: "80px",
+            height: "30px",
+            "line-height": "30px"
+          }
+          break;
+      }
 
-  },
-  mounted () {
+    },
+    // 按钮类型
+    btntype () {
+      if (!this.type) {
+        return;
+      }
+      switch (this.type) {
+        case "primary":
+          return {
+            background: "#409eff",
+            color: "#fff",
+            border: "1px solid #409eff"
 
+          }
+          break;
+        case "success":
+          return {
+            background: "#67c23a",
+            color: "#fff",
+            border: "1px solid #67c23a"
+          }
+          break;
+        case "warning":
+          return {
+            background: "#e6a23c",
+            color: "#fff",
+            border: "1px solid #e6a23c"
+          }
+          break;
+      }
+    }
   },
   methods: {
     /**
@@ -89,10 +171,6 @@ export default {
     },
 
   },
-  watch: {
-
-
-  }
 
 };
 </script>

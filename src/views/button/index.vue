@@ -1,7 +1,7 @@
 <template>
   <div class="button-component">
-    <lfq-button :disabled="true"> 
-      <template v-slot:content>按钮</template>
+    <lfq-button native-type="submit" :is-autofocus="false"  :is-disabled="false" :is-round="true" size="medium" type="warning"> 
+      <template #content>按钮</template>
     </lfq-button>
   </div>
 </template>
