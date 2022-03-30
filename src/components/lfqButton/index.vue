@@ -4,6 +4,7 @@
       <img v-if="isLoading" class="loading-icon" src="../../components/lfqButton/assets/img/loading.png" alt="">
       <span class="text">
         <slot  name="content" />
+        
       </span>
     </button>
   </div>
