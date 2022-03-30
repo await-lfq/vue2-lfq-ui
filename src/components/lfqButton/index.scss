@@ -1,19 +1,52 @@
+// 按钮组件
 .lfq-button {
   display: inline-block;
+  position: relative;
   button {
     border: none;
     outline: none;
     cursor: pointer;
     transition: all 0.5s;
+    font-size: 14px;
+
+    &.round {
+      border-radius: 10px;
+    }
+
+    &.circle {
+      border-radius: 50% !important;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .text {
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    .loading-icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      animation: rotate 2s linear 0s infinite;
+    }
+
   }
-  .round{
-    border-radius: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
   }
-  .circle{
-    border-radius: 50% !important;
-  }
-  .disabled{
-    cursor: not-allowed;
-    opacity: 0.5;
+
+  to {
+    transform: rotate(360deg);
   }
 }

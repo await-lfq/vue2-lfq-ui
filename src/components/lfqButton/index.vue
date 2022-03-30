@@ -1,7 +1,10 @@
 <template>
   <div class="lfq-button">
     <button :type="nativeType" :autofocus="isAutofocus" :disabled="isDisabled" :class="{round:isRound,circle:isCircle,disabled:isDisabled}" :style="{...btnStyle}">
-      <slot name="content" />
+      <img v-if="isLoading" class="loading-icon" src="../../components/lfqButton/assets/img/loading.png" alt="">
+      <span class="text">
+        <slot  name="content" />
+      </span>
     </button>
   </div>
 </template>
@@ -67,10 +70,15 @@ export default {
       type: Boolean,
       default: false,
     },
-    // 原生的type属性
-    nativeType:{
-      type:String,
-      default:"button"
+    // 原生的type值
+    nativeType: {
+      type: String,
+      default: "button"
+    },
+    // 是否有加载图标
+    isLoading:{
+      type:Boolean,
+      default:false,
     }
   },
   computed: {
@@ -147,29 +155,6 @@ export default {
           break;
       }
     }
-  },
-  methods: {
-    /**
-     * @description 移入事件
-     * @method onMouseenter
-     */
-    onMouseenter () {
-      const buttonNode = this.$refs.buttonNode;
-      if (!this.disabled) {
-        buttonNode.style.background = this.mouseenterColor;
-      }
-    },
-    /**
-     * @description 移出事件
-     * @method onMouseleave
-     */
-    onMouseleave () {
-      const buttonNode = this.$refs.buttonNode;
-      if (!this.disabled) {
-        buttonNode.style.background = this.background;
-      }
-    },
-
   },
 
 };
