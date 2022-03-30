@@ -1,17 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
-const router=new VueRouter({
-  mode:"history",
-  routes:[
+const router = new VueRouter({
+  mode: "history",
+  routes: [
     {
-      path:"/",
-      redirect:"/button"
+      path: "/",
+      redirect: "/alert"
     },
     {
-      name:"button",
-      path:"/button",
-      component:()=>import("../views/button"),
+      name: "button",
+      path: "/button",
+      component: () => import("../views/button"),
+    },
+    {
+      name: "alert",
+      path: "/alert",
+      component: () => import("../views/alert"),
     }
   ]
 });
