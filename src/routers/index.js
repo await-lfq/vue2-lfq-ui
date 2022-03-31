@@ -17,6 +17,11 @@ const router = new VueRouter({
       name: "alert",
       path: "/alert",
       component: () => import("../views/alert"),
+    },
+    {
+      name: "drag",
+      path: "/drag",
+      component: () => import("../views/drag"),
     }
   ]
 });
