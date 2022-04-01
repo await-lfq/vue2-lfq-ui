@@ -6,7 +6,7 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      redirect: "/alert"
+      redirect: "/drag2"
     },
     {
       name: "button",
@@ -22,6 +22,11 @@ const router = new VueRouter({
       name: "drag",
       path: "/drag",
       component: () => import("../views/drag"),
+    },
+    {
+      name: "drag2",
+      path: "/drag2",
+      component: () => import("../views/drag2"),
     }
   ]
 });
